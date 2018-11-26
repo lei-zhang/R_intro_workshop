@@ -274,10 +274,12 @@ g = g + labs(x=expression(mu['1'] - mu['2'])) + myconfig
 ggsave(plot = g, "_plots/bayes_ttest.png", width = 4, height = 3, type = "cairo-png", units = "in")
 
 
-
-
-
-	
+#------------------------------------------------------------------------------
+# Calculate Bayes Factor
+library(BayesFactor)
+data(sleep)
+t.test(x = sleep$extra[1:10],y=sleep$extra[11:20], paired=TRUE)
+ttestBF(x = sleep$extra[1:10],y=sleep$extra[11:20], paired=TRUE)
 
 
 
